@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="https://abs.twimg.com/favicons/twitter.3.ico" type="image/x-icon">
+    <title>Home / X</title>
+</head>
+
+<body>
+    <div class="layout">
+        <!-- Left navigation -->
+        <aside class="side hide-on-small" aria-label="Primary navigation">
+            <div class="brand">
+                <img src="assets/x.svg" alt="X">
+            </div>
+
+            <nav class="nav">
+                <a href="#" class="active" aria-current="page"><img src="assets/home.svg" alt="Home">Home</a>
+                <a href="#"><img src="assets/explore.svg" alt="Explore">Explore</a>
+                <a href="#"><img src="assets/notification.svg" alt="Notifications">Notifications</a>
+                <a href="#"><img src="assets/follow.svg" alt="Lists">Follow</a>
+                <a href="#"><img src="assets/chat.svg" alt="Chat">Chat</a>
+                <a href="#"><img src="assets/grok.svg" alt="Grok">Grok</a>
+                <a href="#"><img src="assets/x.svg" alt="Premium">Premium</a>
+                <a href="#"><img src="assets/profile.svg" alt="Profile">Profile</a>
+                <a href="#">
+                    <img src="assets/more.svg" alt="More">
+                    <span class="label">More</span>
+                </a>
+            </nav>
+            <div class="cta">
+                <button type="button" id="composeBtn">Post</button>
+            </div>
+        </aside>
+
+        <!-- Center column -->
+        <main>
+            <section class="feed" aria-label="Home feed">
+                <header class="feed-header" aria-label="Feed tabs">
+                    <div class="feed-tabs" role="tablist" aria-label="Home tabs">
+                        <button class="feed-tab active" role="tab" aria-selected="true" type="button">For you</button>
+                        <button class="feed-tab" role="tab" aria-selected="false" type="button">Following</button>
+                    </div>
+                </header>
+
+                <!-- Compose box -->
+                <div class="composer" id="composer">
+                    <div class="row">
+                        <div class="avatar-img" aria-hidden="true"></div>
+                        <div style="flex:1; min-width:0;">
+                            <label class="sr-only" for="tweetText">Write a post</label>
+                            <textarea id="tweetText" placeholder="What is happening?"></textarea>
+                            <div class="composer-actions">
+                                <div class="composer-icons" aria-label="Composer actions">
+                                    <button class="icon-btn" type="button" aria-label="Add photo">
+                                        <img src="assets/img.svg" alt="Image">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add GIF">
+                                        <img src="assets/gif.svg" alt="GIF">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Grok">
+                                       <img src="assets/grok2.svg" alt="Grok">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Poll">
+                                        <img src="assets/poll.svg" alt="Poll">
+                                     </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Emoji">
+                                      <img src="assets/emoji.svg" alt="Emoji">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Schedule">
+                                        <img src="assets/schedule.svg" alt="Schedule">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Location">
+                                        <img src="assets/location.svg" alt="Location">
+                                    </button>
+
+                                    <button class="icon-btn" type="button" aria-label="Add Flag">
+                                        <img src="assets/flag.svg" alt="Flag">
+                                    </button>
+                                </div>
+
+                                <button type="button" class="post-btn" id="postBtn">Post</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="show-posts" aria-label="Show new posts">Show 70 posts</button>
+
+                <!-- Feed (duplicate .tweet to add more posts) -->
+                <div id="feed">
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Khumo Mpshe</span>
+                                        <span class="verified material-icons" aria-label="Verified">verified</span>
+                                        <span class="handle">@khumompshe</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">12h</span>
+                                    </div>
+                                    <div class="tweet-more" aria-label="Tweet actions">
+                                        <button class="ghost-icon" type="button" aria-label="Mute">
+                                            <span class="material-icons" aria-hidden="true">do_not_disturb_on</span>
+                                        </button>
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>Time to look gorgeous!</p>
+
+                                <div class="media-grid " aria-label="Media">
+                                    <div class="media-cell"><img src="assets/khumo.jpeg" alt="Khumo Mpshe"></div>
+                                    <div class="media-cell"><img src="assets/mpshe.jpeg" alt="Mpshe"></div>
+                                </div>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">4.4K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">12K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">189K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                        <span class="count">21M</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Bible Word</span>
+                                        <span class="handle">@Bibleword</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">5m</span>
+                                    </div>
+                                    <div class="tweet-more">
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>
+                                 "The Lord is near to all who call on him, to all who call on him in truth." 
+                                    </br>
+                                    - Psalm 145:18
+                                </p>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>    
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Kim Kardashian</span>
+                                        <span class="verified material-icons" aria-label="Verified">verified</span>
+                                        <span class="handle">@kimkardashian</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">1h</span>
+                                    </div>
+                                    <div class="tweet-more" aria-label="Tweet actions">
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>In All’s Fair, I play a lawyer who sees firsthand how the legal system can either empower women or leave them behind. But in the real world, the "price of justice" is a barrier that many women simply cannot afford. 
+                                    </br>
+                                    This Friday, March 27, I’m auctioning off my Season 1 wardrobe</br>
+                                    <a href="#">Show more</a>
+                                </p>
+
+                                <div class="media-grid " aria-label="Media">
+                                    <div class="media-cell"><img src="assets/kim.jpg" alt="Kim Kardashian"></div>
+                                    <div class="media-cell"><img src="assets/dash.jpg" alt="Kim Kardashian"></div>
+                                </div>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">4.4K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">12K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">189K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                        <span class="count">21M</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">LUX Cars</span>
+                                        <span class="handle">@LUXCars</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">10h</span>
+                                    </div>
+                                    <div class="tweet-more">
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    Experience the epitome of automotive excellence with LUX Cars. 
+                                    </br>
+                                    BMW M4 - where power meets precision, and every drive is a masterpiece of engineering.
+                                </p>
+
+                                <div class="media-block" aria-label="Media">
+                                    <div class="media"><img src="assets/m4.jpg" alt="BMW M4"></div>
+                                </div>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                    <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>  
+                            </div>
+                        </div>
+                    </article>   
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name"></span>
+                                        <span class="verified material-icons" aria-label="Verified">verified</span>
+                                        <span class="handle">@khumompshe</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">12h</span>
+                                    </div>
+                                    <div class="tweet-more" aria-label="Tweet actions">
+                                        <button class="ghost-icon" type="button" aria-label="Mute">
+                                            <span class="material-icons" aria-hidden="true">do_not_disturb_on</span>
+                                        </button>
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>Time to look gorgeous!</p>
+
+                                <div class="media-grid " aria-label="Media">
+                                    <div class="media-cell"><img src="assets/khumo.jpeg" alt="Khumo Mpshe"></div>
+                                    <div class="media-cell"><img src="assets/mpshe.jpeg" alt="Mpshe"></div>
+                                </div>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">4.4K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">12K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">189K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                            <span class="count">21M</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Bible Word</span>
+                                        <span class="handle">@Bibleword</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">5m</span>
+                                    </div>
+                                    <div class="tweet-more">
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>
+                                    "The Lord is near to all who call on him, to all who call on him in truth." 
+                                    </br>
+                                    - Psalm 145:18
+                                </p>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Khumo Mpshe</span>
+                                        <span class="verified material-icons" aria-label="Verified">verified</span>
+                                        <span class="handle">@khumompshe</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">12h</span>
+                                    </div>
+                                    <div class="tweet-more" aria-label="Tweet actions">
+                                        <button class="ghost-icon" type="button" aria-label="Mute">
+                                            <span class="material-icons" aria-hidden="true">do_not_disturb_on</span>
+                                        </button>
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>Time to look gorgeous!</p>
+
+                                <div class="media-grid " aria-label="Media">
+                                    <div class="media-cell"><img src="assets/khumo.jpeg" alt="Khumo Mpshe"></div>
+                                    <div class="media-cell"><img src="assets/mpshe.jpeg" alt="Mpshe"></div>
+                                </div>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">4.4K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">12K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">189K</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                        <span class="count">21M</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tweet">
+                        <div class="row">
+                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="content">
+                                <div class="tweet-head">
+                                    <div class="tweet-who">
+                                        <span class="name">Bible Word</span>
+                                        <span class="handle">@Bibleword</span>
+                                        <span class="dot">·</span>
+                                        <span class="time">5m</span>
+                                    </div>
+                                    <div class="tweet-more">
+                                        <button class="ghost-icon" type="button" aria-label="More">
+                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <p>
+                                 "The Lord is near to all who call on him, to all who call on him in truth." 
+                                </br>
+                                - Psalm 145:18
+                                </p>
+
+                                <div class="tweet-actions" aria-label="Post actions">
+                                    <button class="action-btn" type="button" aria-label="Reply">
+                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Repost">
+                                        <span class="material-icons" aria-hidden="true">repeat</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Like">
+                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Views">
+                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                    </button>
+                                    <div class="action-spacer"></div>
+                                    <button class="action-btn" type="button" aria-label="Bookmark">
+                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
+                                    </button>
+                                    <button class="action-btn" type="button" aria-label="Share">
+                                        <span class="material-icons" aria-hidden="true">ios_share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right sidebar -->
+        <aside aria-label="Sidebar">
+            <div class="card">
+                <h2>Search</h2>
+                <div class="search">
+                    <input id="searchInput" type="text" placeholder="Search X">
+                    <button type="button" id="searchBtn">Go</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Who to follow</h2>
+                <div class="who" id="whoToFollow">
+                    <div class="person">
+                        <div class="left">
+                            <div class="avatar-sm" aria-hidden="true"></div>
+                            <div>
+                                <div class="name">Example Person</div>
+                                <div class="handle">@example</div>
+                            </div>
+                        </div>
+                        <button class="follow-btn" type="button">Follow</button>
+                    </div>
+                    <div class="person">
+                        <div class="left">
+                            <div class="avatar-sm" aria-hidden="true"></div>
+                            <div>
+                                <div class="name">Another Account</div>
+                                <div class="handle">@account</div>
+                            </div>
+                        </div>
+                        <button class="follow-btn" type="button">Follow</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Trending</h2>
+                <div style="color: var(--muted); font-size: 13px; line-height: 1.5;">
+                    <!-- TODO: add trending topics here -->
+                    Add your own trends / widgets here.
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
+

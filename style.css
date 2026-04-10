@@ -1,0 +1,652 @@
+:root {
+--bg: #000;
+--text: #e7e7e7;
+--muted: #8b8b8b;
+--border: rgba(255, 255, 255, 0.08);
+--accent: #1d9bf0;
+}
+
+/* Reset */
+* { 
+    box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+        
+a { 
+    color: inherit; 
+    text-decoration: none;
+}
+
+/* Base styles */
+button { 
+    font: inherit; 
+    cursor: pointer;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 275px minmax(600px, 1fr) 350px;
+    gap: 24px;
+    width: 100%;
+    max-width: 1265px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Left nav */
+.side {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+    padding-right: 8px;
+    z-index: 3;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    width: 50px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #001018;
+}
+
+.brand-title {
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border);
+}
+
+.nav a.active {
+    background: rgba(29, 155, 240, 0.12);
+    border-color: rgba(29, 155, 240, 0.35);
+}
+
+.nav img {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.nav .label { 
+    font-weight: 600; 
+    color: var(--text); 
+}
+
+.cta {
+    margin-top: 14px;
+    padding: 0 10px;
+}
+
+.cta button {
+    width: 100%;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 14px;
+    font-weight: 800;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.cta button:hover { 
+    filter: brightness(1.05); 
+}
+
+/* Center feed */
+main { 
+    min-width: 0;
+}
+
+.feed {
+    width: 600px;
+    justify-self: center;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+}
+
+.feed-header {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    display: block;
+    z-index: 2;
+}
+
+/* Make right sidebar behave like X */
+.layout > aside[aria-label="Sidebar"]{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+    .layout{ grid-template-columns: 88px minmax(600px, 1fr) 320px; }
+}
+@media (max-width: 900px){
+    .layout{ grid-template-columns: 1fr; }
+    .feed{ width: 100%; }
+    .side,
+    .layout > aside[aria-label="Sidebar"]{ display: none; }
+}
+
+.feed-tabs {
+    display: flex;
+    width: 100%;
+}
+
+.feed-tab {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-weight: 800;
+    padding: 14px 10px 12px;
+    position: relative;
+}
+
+.feed-tab:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.feed-tab.active {
+    color: #fff;
+}
+
+.feed-tab.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2px;
+    width: 64px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+.composer {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.row { 
+    display: flex; 
+    gap: 12px; 
+}
+
+.avatar-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background:
+        url("assets/flowers.jpeg") center/cover no-repeat;
+}
+
+.composer textarea {
+    width: 100%;
+    min-height: 62px;
+    resize: none;
+    background: transparent;
+    color: var(--text);
+    border: none;
+    border-radius: 0;
+    padding: 8px 0 6px;
+    outline: none;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.composer textarea::placeholder {
+    color: #6f6f6f;
+}
+
+.composer-actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+}
+
+.composer-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.icon-btn {
+    border: 0;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.icon-btn:hover {
+    background: rgba(29, 155, 240, 0.12);
+}
+
+.icon-btn .material-icons {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.post-btn {
+    border: 0;
+    background: #2f3336;
+    color: #d6d9db;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 800;
+}
+
+.post-btn:hover {
+    filter: brightness(1.08);
+}
+
+.show-posts {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+    padding: 14px 16px;
+}
+
+.show-posts:hover {
+    background: rgba(29, 155, 240, 0.06);
+}
+
+.tweet {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.tweet:last-child { 
+    border-bottom: none; 
+}
+
+.tweet .content { 
+    flex: 1; 
+    min-width: 0; 
+}
+
+.tweet-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tweet-who {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.tweet-who .name {
+    color: #fff;
+    font-weight: 900;
+}
+
+.tweet-who .verified {
+    color: var(--accent);
+    font-size: 18px;
+    line-height: 1;
+}
+
+.tweet-who .dot { opacity: 0.7; }
+
+.tweet-more {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+}
+
+.ghost-icon {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+}
+
+.ghost-icon:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.ghost-icon .material-icons {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.tweet p {
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+    font-size: 15px;
+    color: var(--text);
+    word-wrap: break-word;
+}
+
+.media-grid {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    aspect-ratio: 16 / 9;
+}
+
+.media-block {
+    margin-top: 10px;
+    border-radius: 18px;
+    overflow: hidden;
+    place-items: center;
+    position: relative;
+    align-items: stretch;
+    aspect-ratio: 18/17;
+}
+
+.media {
+    height: 480px;
+    width: 390px;
+    border-radius: 18px;
+    display: block;
+}
+
+.media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.media-cell {
+    height: 295px;
+    width: 255px;
+    background: rgba(255, 255, 255, 0.03);
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.media-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 2px;
+
+}
+
+.tweet-stats {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.tweet-actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--muted);
+}
+
+.action-btn {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 999px;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.action-btn .material-icons {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.action-btn .count {
+    font-size: 13px;
+}
+
+.action-spacer {
+    flex: 1;
+}
+
+/* Keep older toolbar styles from colliding */
+.tweet .toolbar {
+    display: none;
+}
+
+/* Backwards-compat: if anything still uses .media */
+.tweet .media {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    height: 140px;
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.tool {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.tool:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: var(--border);
+}
+
+.tool img { width: 18px; height: 18px; }
+
+/* Right sidebar */
+aside {
+    position: sticky;
+    top: 16px;
+    height: calc(100vh - 32px);
+    overflow: auto;
+    padding-right: 6px;
+}
+
+.card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.card h2 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+.search { display: flex; gap: 10px; }
+
+.search input {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 12px;
+    color: var(--text);
+    outline: none;
+}
+
+.search input:focus { 
+    border-color: rgba(29,155,240,0.5); 
+}
+
+.search button {
+    border: 1px solid rgba(29,155,240,0.35);
+    background: rgba(29,155,240,0.12);
+    color: #cfeaff;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.who { 
+    display: flex; flex-direction: column;
+    gap: 10px; 
+}
+
+.who .person {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.who .left { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    min-width: 0; 
+}
+
+.who .avatar-sm {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    flex: 0 0 auto;
+}
+
+.who .name {
+    font-weight: 800;
+    font-size: 13px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.who .handle { 
+    color: var(--muted);
+    font-size: 12px; 
+}
+
+.follow-btn {
+    border-radius: 999px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.follow-btn:hover { 
+    filter: brightness(1.05); 
+}
+
+/* Small helper */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 1060px) {
+    .layout { grid-template-columns: 80px minmax(420px, 600px) 320px; }
+    .hide-on-small { display: none; }
+}
+@media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    aside { display: none; }
+}
