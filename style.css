@@ -230,8 +230,16 @@ main {
     border-radius: 9999px;
     flex: 0 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    background:
-        url("assets/flowers.jpeg") center/cover no-repeat;
+    background: url("assets/flowers.jpg") center/cover no-repeat;
+}
+
+.avatar-img1 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("assets/fc.jpg") center/cover no-repeat;
 }
 
 .composer textarea {
@@ -399,7 +407,7 @@ main {
     border-radius: 18px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2px;
     background: rgba(255, 255, 255, 0.08);
     aspect-ratio: 16 / 9;
@@ -409,16 +417,14 @@ main {
     margin-top: 10px;
     border-radius: 18px;
     overflow: hidden;
-    place-items: center;
-    position: relative;
-    align-items: stretch;
-    aspect-ratio: 18/17;
+    display: block;
+    aspect-ratio: 15/17;
 }
 
 .media {
-    height: 480px;
-    width: 390px;
-    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    width: 100%;
+    height: 100%;       
     display: block;
 }
 
@@ -430,22 +436,15 @@ main {
 }
 
 .media-cell {
-    height: 295px;
-    width: 255px;
     background: rgba(255, 255, 255, 0.03);
-    display: grid;
-    place-items: center;
-    color: rgba(255, 255, 255, 0.55);
-    font-weight: 700;
-    font-size: 12px;
+    overflow: hidden;
 }
 
 .media-cell img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    padding: 2px;
-
+    display: block;
 }
 
 .tweet-stats {
