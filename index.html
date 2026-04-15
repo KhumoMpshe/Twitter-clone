@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="https://abs.twimg.com/favicons/twitter.3.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Lexend+Deca:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Home / X</title>
 </head>
 
@@ -34,22 +37,33 @@
             <div class="cta">
                 <button type="button" id="composeBtn">Post</button>
             </div>
+
+            <button class="nav-profile" type="button" aria-label="Account menu">
+                <span class="nav-profile-avatar" aria-hidden="true"></span>
+                <span class="nav-profile-text">
+                    <span class="nav-profile-name">Khumo Mpshe</span>
+                    <span class="nav-profile-handle">@khumompshe969704080408</span>
+                </span>
+                <span class="nav-profile-more material-icons" aria-hidden="true">more_horiz</span>
+            </button>
         </aside>
 
         <!-- Center column -->
         <main>
             <section class="feed" aria-label="Home feed">
                 <header class="feed-header" aria-label="Feed tabs">
-                    <div class="feed-tabs" role="tablist" aria-label="Home tabs">
-                        <button class="feed-tab active" role="tab" aria-selected="true" type="button">For you</button>
-                        <button class="feed-tab" role="tab" aria-selected="false" type="button">Following</button>
+                    <div class="feed-tabs-group">
+                        <div class="feed-tabs" role="tablist" aria-label="Home tabs">
+                            <button class="feed-tab active" role="tab" aria-selected="true" type="button">For you</button>
+                            <button class="feed-tab" role="tab" aria-selected="false" type="button">Following</button>
+                        </div>
                     </div>
                 </header>
 
                 <!-- Compose box -->
                 <div class="composer" id="composer">
                     <div class="row">
-                        <div class="avatar-img" aria-hidden="true"></div>
+                        <div class="avatar-img-1" aria-hidden="true"></div>
                         <div style="flex:1; min-width:0;">
                             <label class="sr-only" for="tweetText">Write a post</label>
                             <textarea id="tweetText" placeholder="What is happening?"></textarea>
@@ -101,14 +115,14 @@
                 <div id="feed">
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-1" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
                                         <span class="name">Khumo Mpshe</span>
                                         <span class="verified material-icons" aria-label="Verified">verified</span>
                                         <span class="handle">@khumompshe</span>
-                                        <span class="dot">·</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">12h</span>
                                     </div>
                                     <div class="tweet-more" aria-label="Tweet actions">
@@ -128,19 +142,19 @@
                                 <div class="tweet-actions" aria-label="Post actions">
                                     <button class="action-btn" type="button" aria-label="Reply">
                                         <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
-                                        <span class="count">4.4K</span>
+                                        <span class="count">50</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Repost">
                                         <span class="material-icons" aria-hidden="true">repeat</span>
-                                        <span class="count">12K</span>
+                                        <span class="count">1K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Like">
                                         <span class="material-icons" aria-hidden="true">favorite_border</span>
-                                        <span class="count">189K</span>
+                                        <span class="count">1.8K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Views">
                                         <span class="material-icons" aria-hidden="true">bar_chart</span>
-                                        <span class="count">21M</span>
+                                        <span class="count">3K</span>
                                     </button>
                                     <div class="action-spacer"></div>
                                     <button class="action-btn" type="button" aria-label="Bookmark">
@@ -156,13 +170,13 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-2" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
                                         <span class="name">Bible Word</span>
                                         <span class="handle">@Bibleword</span>
-                                        <span class="dot">·</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">5m</span>
                                     </div>
                                     <div class="tweet-more">
@@ -181,15 +195,19 @@
                                 <div class="tweet-actions" aria-label="Post actions">
                                     <button class="action-btn" type="button" aria-label="Reply">
                                         <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">12.4K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Repost">
                                         <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">25K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Like">
                                         <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">35K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Views">
                                         <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                        <span class="count">70K</span>
                                     </button>
                                     <div class="action-spacer"></div>
                                     <button class="action-btn" type="button" aria-label="Bookmark">
@@ -205,14 +223,14 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-3" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
                                         <span class="name">Kim Kardashian</span>
                                         <span class="verified material-icons" aria-label="Verified">verified</span>
                                         <span class="handle">@kimkardashian</span>
-                                        <span class="dot">·</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">1h</span>
                                     </div>
                                     <div class="tweet-more" aria-label="Tweet actions">
@@ -264,13 +282,13 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-4" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
                                         <span class="name">LUX Cars</span>
                                         <span class="handle">@LUXCars</span>
-                                        <span class="dot">·</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">10h</span>
                                     </div>
                                     <div class="tweet-more">
@@ -321,14 +339,14 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img1" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-5" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
                                         <span class="name">FC Barcelona</span>
                                         <span class="verified material-icons" aria-label="Verified" aria-hidden="true">verified</span>
                                         <span class="handle">@fcbarcelona</span>
-                                        <span class="dot">·</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">Apr 4</span>
                                     </div>
                                     <div class="tweet-more" aria-label="Tweet actions">
@@ -378,14 +396,14 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-6" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
-                                        <span class="name">Bible Word</span>
-                                        <span class="handle">@Bibleword</span>
-                                        <span class="dot">·</span>
-                                        <span class="time">5m</span>
+                                        <span class="name">Khai Matsipa</span>
+                                        <span class="handle">@KhaiMatsipa27</span>
+                                        <span class="dot">&middot;</span>
+                                        <span class="time">21h</span>
                                     </div>
                                     <div class="tweet-more">
                                         <button class="ghost-icon" type="button" aria-label="More">
@@ -395,23 +413,25 @@
                                 </div>
 
                                 <p>
-                                    "The Lord is near to all who call on him, to all who call on him in truth." 
-                                    </br>
-                                    - Psalm 145:18
+                                    "Phones should be sold with earphones again. People are too comfortable playing their TikToks at the highest volume in public spaces.
                                 </p>
 
                                 <div class="tweet-actions" aria-label="Post actions">
                                     <button class="action-btn" type="button" aria-label="Reply">
                                         <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
+                                        <span class="count">25K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Repost">
                                         <span class="material-icons" aria-hidden="true">repeat</span>
+                                        <span class="count">35K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Like">
                                         <span class="material-icons" aria-hidden="true">favorite_border</span>
+                                        <span class="count">55K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Views">
                                         <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                            <span class="count">1M</span>
                                     </button>
                                     <div class="action-spacer"></div>
                                     <button class="action-btn" type="button" aria-label="Bookmark">
@@ -427,32 +447,24 @@
 
                     <article class="tweet">
                         <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
+                            <div class="avatar-img-7" aria-hidden="true" style="width:44px;height:44px;"></div>
                             <div class="content">
                                 <div class="tweet-head">
                                     <div class="tweet-who">
-                                        <span class="name">Khumo Mpshe</span>
+                                        <span class="name">Ntokozo M</span>
                                         <span class="verified material-icons" aria-label="Verified">verified</span>
-                                        <span class="handle">@khumompshe</span>
-                                        <span class="dot">·</span>
+                                        <span class="handle">@ntokozom</span>
+                                        <span class="dot">&middot;</span>
                                         <span class="time">12h</span>
                                     </div>
                                     <div class="tweet-more" aria-label="Tweet actions">
-                                        <button class="ghost-icon" type="button" aria-label="Mute">
-                                            <span class="material-icons" aria-hidden="true">do_not_disturb_on</span>
-                                        </button>
                                         <button class="ghost-icon" type="button" aria-label="More">
                                             <span class="material-icons" aria-hidden="true">more_horiz</span>
                                         </button>
                                     </div>
                                 </div>
 
-                                <p>Time to look gorgeous!</p>
-
-                                <div class="media-grid " aria-label="Media">
-                                    <div class="media-cell"><img src="assets/khumo.jpeg" alt="Khumo Mpshe"></div>
-                                    <div class="media-cell"><img src="assets/mpshe.jpeg" alt="Mpshe"></div>
-                                </div>
+                                <p>"Love is kind and patient."</p>
 
                                 <div class="tweet-actions" aria-label="Post actions">
                                     <button class="action-btn" type="button" aria-label="Reply">
@@ -465,60 +477,11 @@
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Like">
                                         <span class="material-icons" aria-hidden="true">favorite_border</span>
-                                        <span class="count">189K</span>
+                                        <span class="count">25K</span>
                                     </button>
                                     <button class="action-btn" type="button" aria-label="Views">
                                         <span class="material-icons" aria-hidden="true">bar_chart</span>
-                                        <span class="count">21M</span>
-                                    </button>
-                                    <div class="action-spacer"></div>
-                                    <button class="action-btn" type="button" aria-label="Bookmark">
-                                        <span class="material-icons" aria-hidden="true">bookmark_border</span>
-                                    </button>
-                                    <button class="action-btn" type="button" aria-label="Share">
-                                        <span class="material-icons" aria-hidden="true">ios_share</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="tweet">
-                        <div class="row">
-                            <div class="avatar-img" aria-hidden="true" style="width:44px;height:44px;"></div>
-                            <div class="content">
-                                <div class="tweet-head">
-                                    <div class="tweet-who">
-                                        <span class="name">Bible Word</span>
-                                        <span class="handle">@Bibleword</span>
-                                        <span class="dot">·</span>
-                                        <span class="time">5m</span>
-                                    </div>
-                                    <div class="tweet-more">
-                                        <button class="ghost-icon" type="button" aria-label="More">
-                                            <span class="material-icons" aria-hidden="true">more_horiz</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <p>
-                                 "The Lord is near to all who call on him, to all who call on him in truth." 
-                                </br>
-                                - Psalm 145:18
-                                </p>
-
-                                <div class="tweet-actions" aria-label="Post actions">
-                                    <button class="action-btn" type="button" aria-label="Reply">
-                                        <span class="material-icons" aria-hidden="true">chat_bubble_outline</span>
-                                    </button>
-                                    <button class="action-btn" type="button" aria-label="Repost">
-                                        <span class="material-icons" aria-hidden="true">repeat</span>
-                                    </button>
-                                    <button class="action-btn" type="button" aria-label="Like">
-                                        <span class="material-icons" aria-hidden="true">favorite_border</span>
-                                    </button>
-                                    <button class="action-btn" type="button" aria-label="Views">
-                                        <span class="material-icons" aria-hidden="true">bar_chart</span>
+                                        <span class="count">50K</span>
                                     </button>
                                     <div class="action-spacer"></div>
                                     <button class="action-btn" type="button" aria-label="Bookmark">
@@ -538,48 +501,280 @@
         <!-- Right sidebar -->
         <aside aria-label="Sidebar">
             <div class="card">
-                <h2>Search</h2>
-                <div class="search">
-                    <input id="searchInput" type="text" placeholder="Search X">
-                    <button type="button" id="searchBtn">Go</button>
+                <div class="search" aria-label="Search" role="search"><span class="material-icons" aria-hidden="true">search</span><h2>Search</h2></div>
+            </div>
+
+            <div class="right-card">
+                <div class="card-item" style="cursor: default;">
+                    <div class="card-header" style="padding: 0 0 8px 0;">Subscribe to Premium</div>
+                    <div class="premium-text">Get rid of ads, see your analytics, boost your replies and unlock 20+ features.</div>
+                    <button class="btn-subscribe">Subscribe</button>
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Who to follow</h2>
-                <div class="who" id="whoToFollow">
-                    <div class="person">
-                        <div class="left">
-                            <div class="avatar-sm" aria-hidden="true"></div>
-                            <div>
-                                <div class="name">Example Person</div>
-                                <div class="handle">@example</div>
+            <div class="todays-news">
+                <!-- Title -->
+                <div class="todays-news-title">
+                    <span>
+                        <h2><strong>Today's News</strong></h2>
+                    </span>
+                    <div class="close-button" aria-label="Close">
+                        <span class="material-icons" aria-hidden="true">close</span>
+                    </div>
+                </div>
+
+                <!-- News articles -->
+
+                <!-- Article 1 -->
+                <div class="article">
+                    <div class="article-content">
+                        <!-- Article title -->
+                        <div class="article-title">
+                            <span>Toddler's Epic Eye-Roll Steals Birthday Spotlight in South Africa</span>
+                        </div>
+                        <!-- Article stats -->
+                        <div class="article-stats">
+                            <div class="channel-image">
+                                <img src="https://pbs.twimg.com/profile_images/1293041563657031680/QIjuobDr_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/1621916895380119552/GWGwWx8o_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/2012645448759070720/skPwHK9i_400x400.jpg" alt="">
+                            </div>
+                            <div class="stats">
+                                <span>19 hours ago · Other · 5,960 posts</span>
                             </div>
                         </div>
-                        <button class="follow-btn" type="button">Follow</button>
                     </div>
-                    <div class="person">
-                        <div class="left">
-                            <div class="avatar-sm" aria-hidden="true"></div>
-                            <div>
-                                <div class="name">Another Account</div>
-                                <div class="handle">@account</div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="article">
+                    <div class="article-content">
+                        <!-- Article title -->
+                        <div class="article-title">
+                            <span>Accountant Martha Rantsofu Gunned Down in Daylight Municipal Hit</span>
+                        </div>
+                        <!-- Article stats -->
+                        <div class="article-stats">
+                            <div class="channel-image">
+                                <img src="https://pbs.twimg.com/profile_images/1990487226292039680/0agocETU_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/2038904100922753024/e1JFwEp4_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/1939724750840111104/xOdD6CWk_400x400.jpg" alt="">
+                            </div>
+                            <div class="stats">
+                                <span>2 hours ago · News · 12.4K posts</span>
                             </div>
                         </div>
-                        <button class="follow-btn" type="button">Follow</button>
                     </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="article hover-border-radius">
+                    <div class="article-content">
+                        <!-- Article title -->
+                        <div class="article-title">
+                            <span>Barcelona Chases Champions League Comeback Against Atlético Madrid</span>
+                        </div>
+                        <!-- Article stats -->
+                        <div class="article-stats">
+                            <div class="channel-image">
+                                <img src="https://pbs.twimg.com/profile_images/2030912174466482176/4VNQGNOq_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/2009013507711258625/bFd3JUMB_400x400.jpg" alt="">
+                                <img src="https://pbs.twimg.com/profile_images/1741753635158024192/j0m8Ucvv_400x400.jpg" alt="">
+                            </div>
+                            <div class="stats">
+                                <span>5 hours ago · Sports · 10,835 posts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- What's happening -->
+            <div class="whats-happening">
+                <!-- Title -->
+                <div class="whats-happening-title">
+                    <span>
+                        <h2><strong>What's happening</strong></h2>
+                    </span>
+                </div>
+
+                <!-- Trending topic 1 -->
+                <div class="trending-topics">
+                    <div class="trending-topic-content">
+                        <div class="trending-topic">
+                            <span>Trending in South Africa</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>#WomenAreGorgeous</span>
+                        </div>
+                    </div>
+                    <div class="post-info-buttons hover-effect hover">
+                       <span class="material-icons" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <!-- Trending topic 2 -->
+                <div class="trending-topics">
+                    <div class="trending-topic-content">
+                        <div class="trending-topic">
+                            <span>Trending in South Africa</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>UEFA Champions League</span>
+                        </div>
+                    </div>
+                    <div class="tweet-more" aria-label="Tweet actions">
+                        <button class="ghost-icon" type="button" aria-label="More">
+                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trending topic 3 -->
+                <div class="trending-topics">
+                    <div class="trending-topic-content">
+                        <div class="trending-topic">
+                            <span>Trending in South Africa</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>Barcalona</span>
+                        </div>
+                    </div>
+                    <div class="tweet-more" aria-label="Tweet actions">
+                        <button class="ghost-icon" type="button" aria-label="More">
+                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trending topic 4 -->
+                <div class="trending-topics">
+                    <div class="trending-topic-content">
+                        <div class="trending-topic">
+                            <span>Trending in South Africa</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>#SouthAfrica</span>
+                        </div>
+                    </div>
+                    <div class="tweet-more" aria-label="Tweet actions">
+                        <button class="ghost-icon" type="button" aria-label="More">
+                            <span class="material-icons" aria-hidden="true">more_horiz</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Show more -->
+                <div class="show-more hover-border-radius">
+                    <span>Show more</span>
+                </div>
+                
+            </div>
+
+            <!-- Who to follow -->
+            <div class="who-to-follow">
+                    <!-- Title -->
+                    <div class="who-to-follow-title">
+                        <span>
+                            <h2><strong>Who to follow</strong></h2>
+                        </span>
+                    </div>
+
+                    <!-- List of accounts -->
+                     <div class="accounts-to-follow">
+                        <!-- Account 1 -->
+                        <div class="account">
+                            <div class="account-profile-img">
+                                <img src="https://pbs.twimg.com/profile_images/1529107170448523264/q3VwEx38_400x400.jpg" alt="">
+                            </div>
+                            <div class="account-info">
+                                <div class="account-name">
+                                    <span><a href="">BBC News (World)</a></span>
+                                    <img src="assets/verifygold.svg" alt="verified">
+                                </div>
+                                <span id="profile-tag">@BBCWorld</span>
+                            </div>
+                            <div class="follow-button">
+                                <button>Follow</button>
+                            </div>
+                        </div>
+
+                         <!-- Account 2 -->
+                        <div class="account">
+                            <div class="account-profile-img round-border">
+                                <img src="https://pbs.twimg.com/profile_images/1941179649054105600/zznXexVi_400x400.jpg" alt="">
+                            </div>
+                            <div class="account-info">
+                                <div class="account-name">
+                                    <span><a href="">PrimeTime News</a></span>
+                                </div>
+                                <span id="profile-tag">@PrimeTimeNewsZA</span>
+                            </div>
+                            <div class="follow-button">
+                                <button>Follow</button>
+                            </div>
+                        </div>
+
+                         <!-- Account 3 -->
+                        <div class="account">
+                            <div class="account-profile-img round-border">
+                                <img src="https://pbs.twimg.com/profile_images/1742837199005954048/YGI6Kw7P_400x400.jpg" alt="">
+                            </div>
+                            <div class="account-info">
+                                <div class="account-name">
+                                    <span><a href="">Premier League</a></span>
+                                    <img src="assets/verifygold.svg" alt="verified">
+                                </div>
+                                <span id="profile-tag">@premierLeague</span>
+                            </div>
+                            <div class="follow-button">
+                                <button>Follow</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Show more -->
+                    <div class="show-more hover-border-radius">
+                        <span>Show more</span>
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Trending</h2>
-                <div style="color: var(--muted); font-size: 13px; line-height: 1.5;">
-                    <!-- TODO: add trending topics here -->
-                    Add your own trends / widgets here.
-                </div>
-            </div>
+            <footer>
+                <span><a href="">Terms of Service</a></span>
+                <span>|</span>
+                <span><a href="">Privacy Policy</a></span>
+                <span>|</span>
+                <span><a href="">Cookie Policy</a></span>
+                <span>|</span>
+                <span><a href="">Accessibility</a></span>
+                <span>|</span>
+                <span><a href="">Ads info</a></span>
+                <span>|</span>
+                <span><a href="">More...</a></span>
+                <span>  </span>
+                <span><a href="">© 2026 X Corp.</a></span>
+               
+            </footer>
+            
+
+            <!-- SUPPORT BUTTONS SECTION -->
+            <section id="support-buttons">
+                <button class="grok"><a href="https://grok.com/">
+                    <img src="assets/grok.svg" alt="grok"></a>
+                </button>
+                <button class="new-chat">
+                    <img src="assets/chat.svg" alt="new-chat">
+                </button>
+                <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle theme">
+                    <span class="material-icons" aria-hidden="true" id="themeIcon">dark_mode</span>
+                </button>
+            </section>
         </aside>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
 

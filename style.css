@@ -1,15 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Lexend+Deca:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
 --bg: #000;
 --text: #e7e7e7;
 --muted: #8b8b8b;
 --border: rgba(255, 255, 255, 0.08);
 --accent: #1d9bf0;
+--panel: #16181c;      /* X right-rail card background */
+--panel-2: #0f1115;
+--hover-bg: rgba(255, 255, 255, 0.04);
+--text-primary: var(--text);
+--bg-color: var(--bg);
+--twitter-blue: var(--accent);
+--input-bg: #202327;
+--pill-bg: rgba(255, 255, 255, 0.06);
+}
+
+/* Light theme overrides */
+html[data-theme="light"]{
+--bg: #ffffff;
+--text: #0f1419;
+--muted: #536471;
+--border: rgba(15, 20, 25, 0.12);
+--accent: #1d9bf0;
+--panel: #f7f9f9;
+--panel-2: #ffffff;
+--hover-bg: rgba(15, 20, 25, 0.06);
+--text-primary: var(--text);
+--bg-color: var(--bg);
+--twitter-blue: var(--accent);
+--input-bg: #eff3f4;
+--pill-bg: rgba(15, 20, 25, 0.06);
+}
+
+html[data-theme="light"] .nav-profile,
+html[data-theme="light"] .nav-profile-name,
+html[data-theme="light"] .nav-profile-more,
+html[data-theme="light"] .brand-title,
+html[data-theme="light"] .nav a,
+html[data-theme="light"] .nav a:hover,
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .theme-toggle .material-icons {
+    color: var(--text);
+}
+
+html[data-theme="light"] .nav-profile-avatar {
+    border-color: rgba(15, 20, 25, 0.12);
+}
+
+html[data-theme="light"] .nav a img {
+    filter: brightness(0) invert(0.0) saturate(100%) contrast(1);
+}
+
+html[data-theme="light"] .layout > aside[aria-label="Sidebar"] > .card:first-child::after {
+    background: transparent;
+}
+
+html[data-theme="light"] .feed-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+html[data-theme="light"] .feed-tab.active::after {
+    background: var(--accent);
 }
 
 /* Reset */
 * { 
-    box-sizing: border-box; }
-html, body { height: 100%; }
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%; 
+}
 
 body {
     margin: 0;
@@ -46,21 +109,89 @@ button {
     top: 0;
     height: 100vh;
     overflow: auto;
-    padding-right: 8px;
+    padding: 12px 8px 24px 0;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .brand {
+    align-self: flex-start;
+}
+
+.nav-profile{
+    margin-top: auto; /* pin to bottom */
+    width: 260px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 10px;
-    margin-bottom: 20px;
-    width: 50px;
-    height: 34px;
-    border-radius: 10px;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 0;
+    background: transparent;
+    color: #e7e9ea;
+    border-radius: 999px;
+    text-align: left;
+}
+
+.nav-profile:hover{
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-profile-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: url("assets/flowers.jpeg") center/cover no-repeat;
+}
+
+.nav-profile-text{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.nav-profile-name{
+    font-weight: 900;
+    font-size: 14px;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.nav-profile-handle{
+    font-size: 13px;
+    color: #71767b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.nav-profile-more{
+    color: #71767b;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.brand {
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
     display: grid;
     place-items: center;
+    margin: 4px 0 10px;
+}
+
+.brand img{
+    width: 28px;
+    height: 28px;
+    display: block;
 }
 
 .brand-mark {
@@ -84,32 +215,49 @@ button {
 .nav {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
+    width: 100%;
+    max-width: 260px; /* keeps labels aligned like X */
 }
 
 .nav a {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
+    gap: 16px;
+    padding: 14px 16px;
     border-radius: 999px;
-    border: 1px solid transparent;
+    border: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e7e9ea;
+    width: 100%;
+    max-width: 100%;
 }
 
 .nav a:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--border);
-}
-
-.nav a.active {
-    background: rgba(29, 155, 240, 0.12);
-    border-color: rgba(29, 155, 240, 0.35);
+    background: var(--pill-bg);
 }
 
 .nav img {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     display: block;
+}
+
+.nav a.active {
+    background: var(--pill-bg);
+    font-weight: 800;
+}
+
+.nav img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Make nav column slightly bigger */
+.layout{
+    grid-template-columns: 300px minmax(600px, 1fr) 350px;
 }
 
 .nav .label { 
@@ -118,15 +266,16 @@ button {
 }
 
 .cta {
-    margin-top: 14px;
-    padding: 0 10px;
+    margin-top: 12px;
+    margin-bottom: 25px;
+    width: 260px;
 }
 
 .cta button {
-    width: 100%;
+    width: 230px;
     border: none;
     border-radius: 999px;
-    padding: 12px 14px;
+    padding: 14px 16px;
     font-weight: 800;
     background: white;
     color: black;
@@ -151,21 +300,59 @@ main {
 
 .feed-header {
     position: sticky;
+    height: 60px;
     top: 0;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    padding: 0;
-    display: block;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
     z-index: 2;
+}
+
+html[data-theme="light"] .feed-header{
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.feed-tabs-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+}
+
+.feed-tabs {
+    display: flex;
+    min-width: 0;
+    gap: 200px;
+}
+
+.feed-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+}
+
+.feed-search .material-icons {
+    font-size: 18px;
 }
 
 /* Make right sidebar behave like X */
 .layout > aside[aria-label="Sidebar"]{
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow: auto;
+    /* Let the whole sidebar scroll with the page so it naturally ends at the footer */
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
 }
 
 /* Responsive */
@@ -182,6 +369,35 @@ main {
 .feed-tabs {
     display: flex;
     width: 100%;
+}
+
+/* Theme toggle button (top right of feed header) */
+.theme-toggle{
+    margin-right: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    border-radius: 999px;
+    height: 34px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.theme-toggle:hover{
+    background: var(--hover-bg);
+}
+
+.theme-toggle .material-icons{
+    font-size: 18px;
+    line-height: 1;
+}
+
+.theme-toggle-text{
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .feed-tab {
@@ -224,16 +440,27 @@ main {
     gap: 12px; 
 }
 
-.avatar-img {
+.avatar img,
+.account-profile-img img,
+.follow-avatar,
+.channel-image img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-img-1 {
     width: 44px;
     height: 44px;
     border-radius: 9999px;
     flex: 0 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    background: url("assets/flowers.jpg") center/cover no-repeat;
+    background: url("assets/flowers.jpeg") center/cover no-repeat;
 }
 
-.avatar-img1 {
+.avatar-img-5 {
     width: 44px;
     height: 44px;
     border-radius: 9999px;
@@ -241,6 +468,52 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: url("assets/fc.jpg") center/cover no-repeat;
 }
+
+.avatar-img-2 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("https://pbs.twimg.com/profile_images/1994528597063692288/aUhVCMKq_400x400.jpg") center/cover no-repeat;
+}
+
+.avatar-img-3 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("https://pbs.twimg.com/profile_images/1589659852271280128/KhrL02UB_400x400.jpg") center/cover no-repeat;
+}
+
+.avatar-img-4 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("https://pbs.twimg.com/profile_images/2040540479549280256/ItRa14WV_400x400.jpg") center/cover no-repeat;
+}
+
+.avatar-img-6 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("https://pbs.twimg.com/media/HFpouIxbYAA_SOi?format=jpg&name=large") center/cover no-repeat;
+}
+
+.avatar-img-7 {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: url("https://pbs.twimg.com/profile_images/2030912303105802240/_qjpAnn9_400x400.jpg") center/cover no-repeat;
+}
+
 
 .composer textarea {
     width: 100%;
@@ -250,7 +523,7 @@ main {
     color: var(--text);
     border: none;
     border-radius: 0;
-    padding: 8px 0 6px;
+    padding: 4px 0 3px;
     outline: none;
     font-size: 20px;
     line-height: 1.4;
@@ -265,8 +538,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
+    padding-top: 3px;
 }
 
 .composer-icons {
@@ -324,7 +596,7 @@ main {
 }
 
 .tweet {
-    padding: 14px 16px;
+    padding: 6px 16px 10px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -339,9 +611,8 @@ main {
 
 .tweet-head {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
+    gap: 6px;
 }
 
 .tweet-who {
@@ -354,8 +625,8 @@ main {
 }
 
 .tweet-who .name {
-    color: #fff;
-    font-weight: 900;
+    color: var(--text);
+    font-weight: 700;
 }
 
 .tweet-who .verified {
@@ -364,7 +635,9 @@ main {
     line-height: 1;
 }
 
-.tweet-who .dot { opacity: 0.7; }
+.tweet-who .dot { 
+    opacity: 0.7; 
+}
 
 .tweet-more {
     display: flex;
@@ -394,7 +667,7 @@ main {
 }
 
 .tweet p {
-    margin: 8px 0 0 0;
+    margin: 0;
     line-height: 1.4;
     font-size: 15px;
     color: var(--text);
@@ -402,7 +675,7 @@ main {
 }
 
 .media-grid {
-    margin-top: 10px;
+    margin-top: 8px;
     border: 1px solid var(--border);
     border-radius: 18px;
     overflow: hidden;
@@ -525,36 +798,76 @@ main {
 .tool img { width: 18px; height: 18px; }
 
 /* Right sidebar */
-aside {
+.layout > aside[aria-label="Sidebar"]{
+    height: auto;
+    overflow: visible;
+    padding: 0 6px 24px 0;
+}
+
+/* Sticky Search pill (moves with sticky header while page scrolls) */
+.layout > aside[aria-label="Sidebar"] > .card:first-child{
     position: sticky;
-    top: 16px;
-    height: calc(100vh - 32px);
-    overflow: auto;
-    padding-right: 6px;
+    top: 0;
+    z-index: 5;
+    background: var(--bg);
+    padding-top: 0;
+}
+
+.layout > aside[aria-label="Sidebar"] > .card:first-child::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 10px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    pointer-events: none;
 }
 
 .card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid var(--border);
+    background: transparent;
     border-radius: 18px;
-    padding: 14px;
+    padding: 15px;
     margin-bottom: 16px;
 }
 
 .card h2 {
-    margin: 0 0 10px 0;
-    font-size: 14px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
     color: #fff;
 }
 
-.search { display: flex; gap: 10px; }
+/* Search pill (your HTML uses icon + h2, no input) */
+.card .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 350px;
+    height: 57px;
+    background: transparent;
+    border-radius: 999px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+}
+
+.card .search .material-icons{
+    font-size: 18px;
+    color: #71767b;
+}
+
+.card .search h2{
+    font-size: 1px;
+    font-weight: 500;
+    color: #71767b;
+}
 
 .search input {
     flex: 1;
     background: rgba(255,255,255,0.04);
     border: 1px solid var(--border);
     border-radius: 999px;
-    padding: 10px 12px;
+    padding: 1px 2px;
     color: var(--text);
     outline: none;
 }
@@ -568,9 +881,341 @@ aside {
     background: rgba(29,155,240,0.12);
     color: #cfeaff;
     border-radius: 999px;
-    padding: 10px 12px;
+    padding: 1px 2px;
     font-weight: 800;
     cursor: pointer;
+}
+
+.right-card {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 0;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-item {
+    padding: 14px 16px;
+    transition: background 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.btn-subscribe {
+    background: var(--twitter-blue);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 0 16px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 8px;
+}
+
+.btn-follow {
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 9999px;
+    padding: 0 16px;
+    height: 32px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.premium-text {
+    font-size: 15px;
+    line-height: 20px;
+    color: #cfd3d6;
+    margin-bottom: 4px;
+}
+
+/* Today’s News card */
+.todays-news{
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.todays-news-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+}
+
+.todays-news-title h2{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.close-button{
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    color: #71767b;
+}
+.close-button:hover{
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.article{
+    padding: 12px 16px;
+    cursor: pointer;
+}
+.article:hover{
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.article-title{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.article-stats{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #71767b;
+    font-size: 13px;
+}
+
+.channel-image{
+    display: flex;
+    align-items: center;
+}
+.channel-image img{
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid var(--panel);
+    margin-left: -6px;
+}
+.channel-image img:first-child{ margin-left: 0; }
+
+/* What’s happening (trends) */
+.whats-happening{
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.whats-happening-title{
+    padding: 14px 16px;
+}
+.whats-happening-title h2{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.trending-topics{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+.trending-topics:hover{
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.trending-topic{
+    color: #71767b;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+.hashtag{
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.show-more{
+    padding: 14px 16px;
+    color: var(--accent);
+    font-weight: 400;
+    cursor: pointer;
+}
+.show-more:hover{
+    background: rgba(29, 155, 240, 0.06);
+}
+
+/* Who to follow */
+.who-to-follow{
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.who-to-follow-title{
+    padding: 14px 16px;
+}
+.who-to-follow-title h2{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.accounts-to-follow .account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+.accounts-to-follow .account:hover{
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.account-profile-img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    object-fit: cover;
+}
+
+.account-info{
+    min-width: 0;
+    flex: 1;
+}
+.account-name{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+.account-name a{
+    color: #fff;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.account-name img{
+    width: 16px;
+    height: 16px;
+}
+
+#profile-tag{
+    display: block;
+    color: #71767b;
+    font-size: 13px;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.follow-button button{
+    border: 0;
+    background: #eff3f4;
+    color: #0f1419;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 999px;
+}
+.follow-button button:hover{
+    filter: brightness(0.95);
+}
+
+/* Footer links */
+footer{
+    color: #71767b;
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 8px 4px 18px;
+}
+footer a{
+    color: #71767b;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+
+/* Floating support buttons (right rail) */
+#support-buttons{
+    position: fixed;
+    right: 22px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 50;
+}
+
+#support-buttons button,
+#support-buttons .grok {
+    width: 56px;
+    height: 56px;
+    border-radius: 20px;
+    border: 1px solid rgba(110, 108, 108, 0.916);
+    background: transparent;
+    backdrop-filter: blur(18px);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 8px rgba(142, 141, 141, 0.6), inset 0 1px 0 rgba(18, 18, 18, 0.6);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#support-buttons .grok a{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+#support-buttons button:hover,
+#support-buttons .grok:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+#support-buttons img{
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.trending-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .who { 
@@ -628,6 +1273,36 @@ aside {
     filter: brightness(1.05); 
 }
 
+.follow-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.follow-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.follow-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follow-names {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* Small helper */
 .sr-only {
     position: absolute;
@@ -647,5 +1322,6 @@ aside {
 }
 @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
-    aside { display: none; }
+    .side,
+    .layout > aside[aria-label="Sidebar"]{ display: none; }
 }
