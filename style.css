@@ -40,7 +40,10 @@ html[data-theme="light"] .brand-title,
 html[data-theme="light"] .nav a,
 html[data-theme="light"] .nav a:hover,
 html[data-theme="light"] .theme-toggle,
-html[data-theme="light"] .theme-toggle .material-icons {
+html[data-theme="light"] .theme-toggle .material-icons,
+html[data-theme="light"] .article-title,
+html[data-theme="light"] .hashtag,
+html[data-theme="light"] .account-name a {
     color: var(--text);
 }
 
@@ -155,7 +158,7 @@ button {
 }
 
 .nav-profile-name{
-    font-weight: 900;
+    font-weight: 700;
     font-size: 14px;
     color: var(--text);
     white-space: nowrap;
@@ -282,6 +285,11 @@ button {
     cursor: pointer;
 }
 
+html[data-theme="light"] .cta button {
+    background: var(--accent);
+    color: #001018;
+}
+
 .cta button:hover { 
     filter: brightness(1.05); 
 }
@@ -330,6 +338,16 @@ html[data-theme="light"] .feed-header{
     gap: 200px;
 }
 
+html[data-theme="light"] .feed-tab {
+    color: var(--text);
+}
+
+html[data-theme="light"] .feed-tab:hover {
+    background-color: rgb(171, 165, 165);
+    border-radius: 10px;
+    width: 120px;
+}
+
 .feed-search {
     display: inline-flex;
     align-items: center;
@@ -347,13 +365,15 @@ html[data-theme="light"] .feed-header{
 }
 
 /* Make right sidebar behave like X */
-.layout > aside[aria-label="Sidebar"]{
-    /* Let the whole sidebar scroll with the page so it naturally ends at the footer */
+/*.layout > aside[aria-label="Sidebar"]{
     position: relative;
-    top: auto;
+    top: 16px;
+    align-self: stretch;
     height: auto;
     overflow: visible;
-}
+    padding: 0 6px 24px 0;
+    padding-left: 12px;
+}*/
 
 /* Responsive */
 @media (max-width: 1100px){
@@ -569,11 +589,16 @@ html[data-theme="light"] .feed-header{
 
 .post-btn {
     border: 0;
-    background: #2f3336;
-    color: #d6d9db;
+    background: rgb(113, 118, 123);
+    color: black;
     border-radius: 999px;
     padding: 10px 16px;
-    font-weight: 800;
+    font-weight: 700;
+}
+
+html[data-theme="light"] .post-btn {
+    background: var(--accent);
+    color: #001018;
 }
 
 .post-btn:hover {
@@ -799,6 +824,10 @@ html[data-theme="light"] .feed-header{
 
 /* Right sidebar */
 .layout > aside[aria-label="Sidebar"]{
+    position: stretch;
+    top: 16px;
+    bottom: 0;
+    align-self: start;
     height: auto;
     overflow: visible;
     padding: 0 6px 24px 0;
@@ -806,7 +835,7 @@ html[data-theme="light"] .feed-header{
 
 /* Sticky Search pill (moves with sticky header while page scrolls) */
 .layout > aside[aria-label="Sidebar"] > .card:first-child{
-    position: sticky;
+    position: stretch;
     top: 0;
     z-index: 5;
     background: var(--bg);
@@ -844,7 +873,7 @@ html[data-theme="light"] .feed-header{
     align-items: center;
     gap: 10px;
     width: 350px;
-    height: 57px;
+    height: 43.2px;
     background: transparent;
     border-radius: 999px;
     padding: 0 14px;
@@ -857,14 +886,14 @@ html[data-theme="light"] .feed-header{
 }
 
 .card .search h2{
-    font-size: 1px;
+    font-size: 16px;
     font-weight: 500;
     color: #71767b;
 }
 
 .search input {
     flex: 1;
-    background: rgba(255,255,255,0.04);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 999px;
     padding: 1px 2px;
@@ -948,6 +977,10 @@ html[data-theme="light"] .feed-header{
     line-height: 20px;
     color: #cfd3d6;
     margin-bottom: 4px;
+}
+
+html[data-theme="light"] .premium-text {
+    color: #536471;
 }
 
 /* Today’s News card */
@@ -1178,6 +1211,24 @@ footer a:hover{
     z-index: 50;
 }
 
+html[data-theme="light"] #support-buttons button, 
+    #support-buttons .grok {
+    border: 1px solid rgba(110, 108, 108, 0.6);
+    background: transparent;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 5px 8px rgba(142, 141, 141, 0.4), inset 0 1px 0 rgba(18, 18, 18, 0.4);
+}
+
+html[data-theme="light"] #support-buttons button:hover, 
+    #support-buttons .grok:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] #support-buttons img {
+    filter: brightness(0) invert(0.0) saturate(100%) contrast(1);
+}
+
 #support-buttons button,
 #support-buttons .grok {
     width: 56px;
@@ -1324,4 +1375,143 @@ footer a:hover{
     .layout { grid-template-columns: 1fr; }
     .side,
     .layout > aside[aria-label="Sidebar"]{ display: none; }
+}
+
+/* =========================================================
+   Responsive rules mapped to YOUR HTML structure
+   (layout = left nav .side | main .feed | right sidebar aside[aria-label="Sidebar"])
+   ========================================================= */
+
+/* These elements don't exist in your HTML yet, but keeping them hidden is safe. */
+.mobile-drawer-overlay,
+.mobile-header,
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* <= 1264px: collapse left nav to icon-only */
+@media (max-width: 1264px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr) 350px;
+    }
+
+    /* Left rail sizing */
+    .side {
+        align-items: center;
+        padding-right: 0;
+    }
+
+    .nav {
+        max-width: 88px;
+        width: 88px;
+        align-items: center;
+    }
+
+    /* Hide link text (your links have text nodes, so we zero font-size) */
+    .nav a {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        padding: 0;
+        font-size: 0;
+        border-radius: 999px;
+    }
+    .nav a img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Post button becomes a round + */
+    .cta {
+        width: 50px;
+        margin: 16px auto;
+        padding: 0;
+    }
+    .cta button {
+        width: 50px;
+        height: 50px;
+        border-radius: 999px;
+        padding: 0;
+        font-size: 0;
+        position: relative;
+    }
+    .cta button::after {
+        content: "+";
+        font-size: 26px;
+        font-weight: 400;
+        color: #0f1419;
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    /* Bottom profile button becomes avatar only */
+    .nav-profile {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        padding: 0;
+        border-radius: 999px;
+    }
+    .nav-profile-text,
+    .nav-profile-more {
+        display: none;
+    }
+}
+
+/* <= 1077px: make right sidebar a bit narrower */
+@media (max-width: 1077px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr) 290px;
+    }
+
+    .layout > aside[aria-label="Sidebar"] .card .search {
+        width: 100%;
+    }
+}
+
+/* <= 987px: hide right sidebar */
+@media (max-width: 987px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr);
+    }
+    .layout > aside[aria-label="Sidebar"] {
+        display: none;
+    }
+}
+
+/* <= 685px: main feed becomes full width */
+@media (max-width: 685px) {
+    .layout {
+        grid-template-columns: 88px 1fr;
+        gap: 12px;
+    }
+    .feed {
+        width: 100%;
+        min-width: 0;
+        justify-self: stretch;
+    }
+}
+
+/* <= 499px: hide left nav too, full-width feed */
+@media (max-width: 499px) {
+    .layout {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+    }
+
+    .side {
+        display: none;
+    }
+
+    .feed {
+        width: 100%;
+    }
+
+    /* Your floating support buttons: lift them above mobile chrome */
+    #support-buttons {
+        bottom: 16px;
+        right: 12px;
+    }
 }
