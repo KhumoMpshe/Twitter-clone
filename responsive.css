@@ -1,0 +1,332 @@
+/* Hidden by default (rendered only on mobile breakpoint) */
+.mobile-header {
+    display: none;
+}
+
+/* <= 1264px: collapse left nav to icon-only */
+@media (max-width: 1264px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr) 350px;
+    }
+
+    .side {
+        align-items: center;
+        padding-right: 0;
+    }
+
+    .brand {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav {
+        max-width: 88px;
+        width: 88px;
+        align-items: center;
+    }
+
+    .nav a {
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+        font-size: 0; /* hides text nodes in links */
+        gap: 0;
+    }
+
+    .nav .label {
+        display: none;
+    }
+
+    .cta {
+        width: 50px;
+        margin: 16px auto;
+        padding: 0;
+    }
+
+    .cta button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 0;
+        font-size: 0;
+        position: relative;
+    }
+
+    .cta button::after {
+        content: "+";
+        color: #fff;
+        font-size: 24px;
+        font-weight: 400;
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    .nav-profile {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .nav-profile-text,
+    .nav-profile-more {
+        display: none;
+    }
+}
+
+/* <= 1077px: right rail gets narrower */
+@media (max-width: 1077px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr) 290px;
+    }
+
+    .layout > aside[aria-label="Sidebar"] {
+        width: 290px;
+    }
+
+    .layout > aside[aria-label="Sidebar"] .card .search {
+        width: 100%;
+    }
+}
+
+/* <= 987px: hide right sidebar */
+@media (max-width: 987px) {
+    .layout {
+        grid-template-columns: 88px minmax(600px, 1fr);
+    }
+
+    .layout > aside[aria-label="Sidebar"] {
+        display: none;
+    }
+}
+
+/* <= 685px: feed stretches */
+@media (max-width: 685px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: 0;
+        padding: 0;
+    }
+
+    /* Show nav icons as a bottom bar on small screens (tablet -> phone) */
+    .side.hide-on-small {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        height: 53px;
+        width: 100%;
+        z-index: 120;
+        padding: 0;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border);
+        overflow: hidden;
+    }
+
+    .side .brand,
+    .side .cta,
+    .side .nav-profile {
+        display: none;
+    }
+
+    .side .nav {
+        width: 100%;
+        max-width: none;
+        height: 53px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 0;
+        overflow: hidden;
+        padding: 0 8px;
+    }
+
+    .side .nav a {
+        display: none; /* show only selected icons below */
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 999px;
+        font-size: 0;
+        gap: 0;
+        flex-shrink: 0;
+    }
+
+    /* Home, Search(Explore), Grok, Notifications, Chat */
+    .side .nav a:nth-child(1),
+    .side .nav a:nth-child(2),
+    .side .nav a:nth-child(6),
+    .side .nav a:nth-child(3),
+    .side .nav a:nth-child(5) {
+        display: flex;
+    }
+
+    .side .nav a:nth-child(1) { order: 1; } /* Home */
+    .side .nav a:nth-child(2) { order: 2; } /* Search */
+    .side .nav a:nth-child(6) { order: 3; } /* Grok */
+    .side .nav a:nth-child(3) { order: 4; } /* Notifications */
+    .side .nav a:nth-child(5) { order: 5; } /* Chats */
+
+    .side .nav a img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .feed {
+        width: 100%;
+        min-width: 0;
+        justify-self: stretch;
+        border-left: 0;
+        border-right: 0;
+        padding-bottom: calc(66px + env(safe-area-inset-bottom)); /* keep content above bottom nav */
+    }
+}
+
+/* <= 499px: hide left nav, full-width feed, mobile support spacing */
+@media (max-width: 499px) {
+    /* Turn existing desktop nav into a sticky bottom mobile icon bar */
+    .side.hide-on-small {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        height: 53px;
+        width: 100%;
+        z-index: 120;
+        padding: 0;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border);
+        overflow: hidden;
+    }
+
+    .side .brand,
+    .side .cta,
+    .side .nav-profile {
+        display: none;
+    }
+
+    .side .nav {
+        width: 100%;
+        max-width: none;
+        height: 53px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 0;
+        overflow: hidden;
+        padding: 0 8px;
+    }
+
+    .side .nav a {
+        display: none; /* show only selected icons below */
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 999px;
+        font-size: 0;
+        gap: 0;
+        flex-shrink: 0;
+    }
+
+    /* Home, Search(Explore), Grok, Notifications, Chat */
+    .side .nav a:nth-child(1),
+    .side .nav a:nth-child(2),
+    .side .nav a:nth-child(6),
+    .side .nav a:nth-child(3),
+    .side .nav a:nth-child(5) {
+        display: flex;
+    }
+
+    .side .nav a:nth-child(1) { order: 1; } /* Home */
+    .side .nav a:nth-child(2) { order: 2; } /* Search */
+    .side .nav a:nth-child(6) { order: 3; } /* Grok */
+    .side .nav a:nth-child(3) { order: 4; } /* Notifications */
+    .side .nav a:nth-child(5) { order: 5; } /* Chats */
+
+    .side .nav a img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .feed {
+        width: 100%;
+        padding-bottom: calc(66px + env(safe-area-inset-bottom)); /* keep content above bottom nav */
+    }
+
+    .feed-header {
+        top: 48px; /* sits below sticky mobile header */
+    }
+
+    #support-buttons {
+        bottom: calc(66px + env(safe-area-inset-bottom));
+        right: 16px;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+        padding: 0 12px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(12px);
+        z-index: 30;
+    }
+
+    .mobile-profile-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: url("assets/flowers.jpeg") center/cover no-repeat;
+        flex: 0 0 auto;
+    }
+
+    .mobile-home-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1;
+    }
+
+    .mobile-header-spacer {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+    }
+
+}

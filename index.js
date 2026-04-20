@@ -4,7 +4,7 @@
     const STORAGE_KEYS = {
         theme: "xclone-theme",
         likes: "xclone-liked-tweets",
-        chat: "xclone-chat-messages"
+        chat: "xclone-chat-messages",
     };
 
     const THEME = {
@@ -281,6 +281,7 @@
         updatePostButtonState();
         tweetTextInput.focus();
     };
+
 
     const injectChatStyles = () => {
         if (document.getElementById("chatPanelStyles")) return;
